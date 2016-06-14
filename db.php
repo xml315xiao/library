@@ -169,9 +169,10 @@ class DB
      *
      * @param   $sql        string
      * @param   $params     array
+     * @param   $row        bool
      * @return  mixed   success array else false.
      */
-    public function query($sql, $params = array())
+    public function query($sql, $params = array(), $row = FALSE)
     {
         $sql = $this->quote_sql($sql);
         $this->last_sql = $sql;
@@ -181,7 +182,7 @@ class DB
             $statement = $this->get_query_link()->prepare($sql);
             $statement->execute($params);
 
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
+            return FALSE === $row ? $statement->fetchAll(PDO::FETCH_ASSOC) : $statement->fetch(PDO::FETCH_ASSOC);
 
         } catch (PDOException $exception) {
 
