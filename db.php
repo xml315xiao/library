@@ -276,7 +276,7 @@ class DB
      * Get the Last SQL executed.
      * @return string
      */
-    public function get_last_sql()
+    public function last_query()
     {
         return $this->parse_sql([$this->last_sql, $this->last_params]);
     }
