@@ -13,7 +13,7 @@ class DB
 
     protected $last_params;       // The params of the last sql binded.
 
-    protected $config = [         // The configs of connect to the database.
+    protected $config = [         // Master Database configuration options
         'dsn'      => '',
         'hostname' => '',
         'database' => '',
@@ -23,7 +23,7 @@ class DB
         'prefix'   => '',
     ];
 
-    protected $slave_config;       // The config of connect to the slave database.
+    protected $slave_config;       // Slaves Database configuration options
 
     protected $transaction = 0;    // Use only master database when start transaction.
 
