@@ -39,7 +39,7 @@ class Captcha
             'style' => 1,
             'expiration' => 300,
             'img_path' => 'public/captcha/',
-            'img_url' => base_url() . 'public/captcha/',
+            'img_url' =>  'public/captcha/',
             'font' => 'public/simhei.ttf',
         ];
         foreach ($default as $key => $value) {
@@ -63,8 +63,8 @@ class Captcha
     public function createCaptcha()
     {
 
-        if (!is_file($this->font) || $this->img_path === '' || $this->img_url === ''
-            || !is_dir($this->img_path) || !is_really_writable($this->img_path)
+        if ( ! is_file($this->font) || $this->img_path === '' || $this->img_url === ''
+            || !is_dir($this->img_path) || ! is_writable($this->img_path)
         )
             return false;
 

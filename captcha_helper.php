@@ -22,7 +22,7 @@ if (!function_exists('create_captcha'))
             'style' => 1,
             'expiration' => 300,
             'img_path' => 'public/captcha/',
-            'img_url' => base_url() . 'public/captcha/',
+            'img_url' => 'public/captcha/',
             'font' => 'public/simhei.ttf',
         ];
         foreach ($default as $key => $value) {
@@ -33,8 +33,8 @@ if (!function_exists('create_captcha'))
         }
 
         // Check for config.
-        if (!is_file($font) || $img_path === '' || $img_url === ''
-            || !is_dir($img_path) || !is_really_writable($img_path)
+        if (! is_file($font) || $img_path === '' || $img_url === ''
+            || !is_dir($img_path) || ! is_writable($img_path)
             || !extension_loaded('gd')
         )
 
