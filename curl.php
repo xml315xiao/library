@@ -1,4 +1,5 @@
 <?php
+namespace libs;
 
 class CURL
 {
@@ -19,6 +20,8 @@ class CURL
             CURLOPT_RETURNTRANSFER => TRUE,
             CURLOPT_FAILONERROR => TRUE,
             CURLOPT_FOLLOWLOCATION => TRUE,
+            CURLOPT_SSL_VERIFYHOST => FALSE,
+            CURLOPT_SSL_VERIFYPEER => FALSE,
         );
     }
 
