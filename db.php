@@ -254,7 +254,7 @@ class DB
      * Roll Back transaction.
      * @return void
      */
-    public function roll_back()
+    public function rollback()
     {
         if ($this->transaction == 1) {
             $this->transaction = 0;
