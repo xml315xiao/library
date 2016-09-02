@@ -148,8 +148,6 @@ function getUseridList($token, $next_openid = ''){
     return curlWechat('https://api.weixin.qq.com/cgi-bin/user/get?access_token='.$token.'&next_openid='.$next_openid);
 }
 
-
-
 /* *
  * 第一步、用户同意授权，获取code
  * https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
