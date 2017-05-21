@@ -19,7 +19,7 @@ class DB
         'database' => '',
         'username' => 'root',
         'password' => 'root',
-        'charset'   => 'utf8',
+        'charset'  => 'utf8',
         'prefix'   => '',
     ];
 

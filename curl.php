@@ -124,6 +124,7 @@ class CURL
         curl_setopt_array($this->ch, $this->options);
         return $this;
     }
+
     public function option($code, $value)
     {
         if (is_string($code) && !is_numeric($code)) {
