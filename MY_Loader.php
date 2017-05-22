@@ -1,15 +1,15 @@
-<?php
-if (! defined ( 'BASEPATH' )) exit ( 'No direct access allowed.' );
+<?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
-class MY_Loader extends CI_Loader {
+/* load the MX_Loader class */
+require APPPATH."third_party/MX/Loader.php";
 
+class MY_Loader extends MX_Loader
+{
     //services path
     protected $_ci_services_paths = array(APPPATH);
 
     //services class
     protected $_ci_services = array();
-
-
 
     public function __construct() {
         parent::__construct ();
@@ -94,12 +94,15 @@ class MY_Loader extends CI_Loader {
             //load services files
             foreach ($this->_ci_services_paths as $service_path)
             {
-                if ( ! file_exists($service_path.'services/'.$path.$service.'.php'))
-                {
+                if ( file_exists($service_path. 'modules/'. $this->_module. '/services/'. $path. $service. '.php')) {
+                    include_once($service_path.'/modules/'. $this->_module. '/services/'.$path.$service.'.php');
+                } else if ( file_exists($service_path.'services/'.$path.$service.'.php')) {
+                    //default path application/services/
+                    include_once($service_path.'services/'.$path.$service.'.php');
+                } else {
                     continue;
                 }
-                //default path application/services/
-                include_once($service_path.'services/'.$path.$service.'.php');
+
 
                 $CI = &get_instance();
 
